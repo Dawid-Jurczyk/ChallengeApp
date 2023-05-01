@@ -2,72 +2,46 @@
 {
     internal class Program
     {
+
+
         static void Main(string[] args)
         {
-            int number = 54422216;
 
-            string numberToString = number.ToString();
-
-            char[] numberAsCharsList = numberToString.ToCharArray();
-
-            int counter0 = 0;
-            int counter1 = 0;
-            int counter2 = 0;
-            int counter3 = 0;
-            int counter4 = 0;
-            int counter5 = 0;
-            int counter6 = 0;
-            int counter7 = 0;
-            int counter8 = 0;
-            int counter9 = 0;
-
-
-            foreach (char i in numberAsCharsList)
-            {
-                if (i == '0')
-                { counter0++; }
-                else if (i == '1')
-                { counter1++; }
-                else if (i == '2')
-                { counter2++; }
-                else if (i == '3')
-                { counter3++; }
-                else if (i == '4')
-                { counter4++; }
-                else if (i == '5')
-                { counter5++; }
-                else if (i == '6')
-                { counter6++; }
-                else if (i == '7')
-                { counter7++; }
-                else if (i == '8')
-                { counter8++; }
-                else if (i == '9')
-                { counter9++; }
-
-            }
-
-            Console.WriteLine($"0 => {counter0}");
-            Console.WriteLine($"1 => {counter1}");
-            Console.WriteLine($"2 => {counter2}");
-            Console.WriteLine($"3 => {counter3}");
-            Console.WriteLine($"4 => {counter4}");
-            Console.WriteLine($"5 => {counter5}");
-            Console.WriteLine($"6 => {counter6}");
-            Console.WriteLine($"7 => {counter7}");
-            Console.WriteLine($"8 => {counter8}");
-            Console.WriteLine($"9 => {counter9}");
-
-
-          
+            User user1 = new User("Adam", "12312fsdfsd");
+            User user2 = new User("Dawid", "12312fsdfsd");
+            User user3 = new User("Pati", "12312fsdfsd");
+            User user4 = new User("Natala", "12312fsdfsd");
 
 
 
-
-
+            user1.AddScore(5);
+            user1.AddScore(2);
+            var result = user1.Result;
+            Console.WriteLine(result);
+            var name = User.GameName;
+            
 
 
 
         }
+
+
+      
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
