@@ -2,7 +2,7 @@
 
 namespace ChallengeApp
 {
-    class Employee
+   public class Employee
     {
         public Employee(string firstName, string lastName, int age)
         {
@@ -21,6 +21,12 @@ namespace ChallengeApp
         public void AddGrade(int grade)
         {
             this.grade.Add(grade);
+        }
+
+     public void AddNegativeGrade(int negativeGrade)
+        {
+            negativeGrade = -negativeGrade;
+            this.grade.Add(negativeGrade);
         }
 
         public int Result
