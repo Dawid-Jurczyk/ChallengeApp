@@ -6,49 +6,80 @@ namespace ChallengeApp.TESTS
 {
     public class Tests
     {
-       
-
         [Test]
-        public void WhenOnlyPositiveGradesAreAddedThenCheckIfGradesSumIsCorrect()
+        public void WhenGetStatisticsIsCalledForOneGrade()
         {
-            //arrange
-            Employee testEmployee1 = new Employee("Jan", "Kowalski", 37);
-            testEmployee1.AddGrade(7);
-            testEmployee1.AddGrade(3);
-            testEmployee1.AddGrade(5);
-            //act
-            var result = testEmployee1.Result;
-            //assert
-            Assert.AreEqual(15, result);
+            //Arrange
+            Employee testEmployee= new Employee("Jan", "Kowalski");
+            testEmployee.AddGrade(5.5f);
+
+            //Act
+            Statistics result = testEmployee.GetStatistics();
+
+            //Asset
+            Assert.AreEqual(5.5f, result.Average);
+            Assert.AreEqual(5.5f, result.Min);
+            Assert.AreEqual(5.5f, result.Max);
+
 
         }
 
         [Test]
-        public void WhenPositiveAndNegativeGradesAreAddedThenCheckIfGradesSumIsCorrect()
+        public void WhenGetStatisticsIsCalledForMultipleGrades()
         {
-            //arrange
-            Employee testEmployee2 = new Employee("Marek", "B¹k", 67);
-            testEmployee2.AddGrade(7);
-            testEmployee2.AddGrade(3);
-            testEmployee2.AddNegativeGrade(5);
-            //act
-            var result = testEmployee2.Result;
-            //assert
-            Assert.AreEqual(5, result);
+            //Arrange
+            Employee testEmployee = new Employee("Jan", "Kowalski");
+            testEmployee.AddGrade(8.0f);
+            testEmployee.AddGrade(2.0f);
+            testEmployee.AddGrade(5.0f);
+
+            //Act
+            var statistics = testEmployee.GetStatistics();
+
+            //Assert
+            Assert.AreEqual(5.0f, statistics.Average);
+            Assert.AreEqual(2.0f, statistics.Max);
+            Assert.AreEqual(8.0f, statistics.Min);
+
+
+
+        }
+        
+        
+        [Test]
+        public void WhenGetStatisticsIsCalledForZeroGrades() {
+            // Arrange
+            Employee testEmployee = new Employee("Jan", "Kowalski");
+            // Act
+            Statistics result = testEmployee.GetStatistics();
+
+            // Assert
+            Assert.AreEqual(0f, result.Average);
+            Assert.AreEqual(float.MaxValue, result.Min);
+            Assert.AreEqual(float.MinValue, result.Max);
         }
 
-        [Test]
-        public void WhenOnlyNegativeGradesAreAddedThenChecksIfGradesSumIsCorrect()
-        {
-            //arrange
-            Employee testEmployee3 = new Employee("Monika", "Bia³a", 25);
-            testEmployee3.AddNegativeGrade(4);
-            testEmployee3.AddNegativeGrade(6);
-            testEmployee3.AddNegativeGrade(5);
-            //act
-            var result = testEmployee3.Result;
-            //assert
-            Assert.AreEqual(-15,result);
         }
+
+
+
+
+
+
+
+
+
+
+
+
     }
-}
+
+
+
+
+
+
+
+
+
+
