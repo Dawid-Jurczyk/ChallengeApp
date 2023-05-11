@@ -10,9 +10,9 @@ namespace ChallengeApp
         {
             var employee1 = new Employee("Adam", "Kamizelich");
 
-            employee1.AddGrade(5.5f);
-            employee1.AddGrade(3.2f);
-            employee1.AddGrade(4.5f);
+            employee1.AddGrade(2);
+            employee1.AddGrade(2);
+            employee1.AddGrade(6);
             
             var statistics = employee1.GetStatistics();
 
@@ -21,7 +21,7 @@ namespace ChallengeApp
             Console.WriteLine($"Max: {statistics.Max}");
 
 
-
+            //fdfdfdfdf
 
 
 

@@ -7,39 +7,36 @@ namespace ChallengeApp.TESTS
     public class Tests
     {
         [Test]
-        public void WhenGetStatisticsIsCalledForOneGrade()
+        public void WhenGetStatisticCalled_ShouldReturnCorrectMax()
         {
             //Arrange
             Employee testEmployee= new Employee("Jan", "Kowalski");
-            testEmployee.AddGrade(5.5f);
-
-            //Act
-            Statistics result = testEmployee.GetStatistics();
-
-            //Asset
-            Assert.AreEqual(5.5f, result.Average);
-            Assert.AreEqual(5.5f, result.Min);
-            Assert.AreEqual(5.5f, result.Max);
-
-
-        }
-
-        [Test]
-        public void WhenGetStatisticsIsCalledForMultipleGrades()
-        {
-            //Arrange
-            Employee testEmployee = new Employee("Jan", "Kowalski");
-            testEmployee.AddGrade(8.0f);
-            testEmployee.AddGrade(2.0f);
-            testEmployee.AddGrade(5.0f);
+            testEmployee.AddGrade(9);
+            testEmployee.AddGrade(8);
+            testEmployee.AddGrade(6);
 
             //Act
             var statistics = testEmployee.GetStatistics();
 
+            //Asset
+            Assert.AreEqual(9, statistics.Max);
+
+
+        }
+
+        [Test]
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectMin()
+        {
+            //Arrange
+            Employee testEmployee = new Employee("Jan", "Kowalski");
+            testEmployee.AddGrade(9);
+            testEmployee.AddGrade(8);
+            testEmployee.AddGrade(6);
+            //Act
+            var statistics = testEmployee.GetStatistics();
+
             //Assert
-            Assert.AreEqual(5.0f, statistics.Average);
-            Assert.AreEqual(2.0f, statistics.Max);
-            Assert.AreEqual(8.0f, statistics.Min);
+            Assert.AreEqual(6, statistics.Min);
 
 
 
@@ -47,16 +44,19 @@ namespace ChallengeApp.TESTS
         
         
         [Test]
-        public void WhenGetStatisticsIsCalledForZeroGrades() {
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectAverage() 
+        {
             // Arrange
             Employee testEmployee = new Employee("Jan", "Kowalski");
+            testEmployee.AddGrade(9);
+            testEmployee.AddGrade(8);
+            testEmployee.AddGrade(6);
             // Act
-            Statistics result = testEmployee.GetStatistics();
+            var statistics = testEmployee.GetStatistics();
 
             // Assert
-            Assert.AreEqual(0f, result.Average);
-            Assert.AreEqual(float.MaxValue, result.Min);
-            Assert.AreEqual(float.MinValue, result.Max);
+            Assert.AreEqual(Math.Round(7.66666666,2),Math.Round(statistics.Average,2));
+           
         }
 
         }
