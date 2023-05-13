@@ -20,12 +20,11 @@ namespace ChallengeApp
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
-        //for float
+        //for float - the primary method
 
         public void AddGrade(float grade)
         {
-            int valueInInt = (int)Math.Ceiling(grade);
-
+            
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
@@ -50,24 +49,40 @@ namespace ChallengeApp
         //for int
         public void AddGrade(int grade)
         {
-            this.AddGrade((float)grade);
+           
+            this.AddGrade((float)Math.Ceiling((decimal)grade));
         }
 
         //for decimal
         public void AddGrade(decimal grade)
         {
+            Math.Ceiling(grade);
+            this.AddGrade((float)grade);
+        }
+
+        //for double
+
+        public void AddGrade(double grade)
+        {
+            Math.Ceiling(grade);
             this.AddGrade((float)grade);
         }
 
 
         //for long
 
-        //for double
+        public void AddGrade(long grade)
+        {
 
-        //for char
+            this.AddGrade((float)Math.Ceiling((decimal)grade));
+        }
 
+        //for byte
+        public void AddGrade(byte grade)
+        {
 
-
+            this.AddGrade((float)Math.Ceiling((decimal)grade));
+        }
 
         public Statistics GetStatistics()
         {
