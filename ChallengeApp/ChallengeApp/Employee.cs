@@ -50,13 +50,13 @@ namespace ChallengeApp
         public void AddGrade(int grade)
         {
            
-            this.AddGrade((float)Math.Ceiling((decimal)grade));
+            this.AddGrade((float)grade);
         }
 
         //for decimal
         public void AddGrade(decimal grade)
         {
-            Math.Ceiling(grade);
+            
             this.AddGrade((float)grade);
         }
 
@@ -64,7 +64,7 @@ namespace ChallengeApp
 
         public void AddGrade(double grade)
         {
-            Math.Ceiling(grade);
+            
             this.AddGrade((float)grade);
         }
 
@@ -74,14 +74,14 @@ namespace ChallengeApp
         public void AddGrade(long grade)
         {
 
-            this.AddGrade((float)Math.Ceiling((decimal)grade));
+            this.AddGrade((float)grade);
         }
 
         //for byte
         public void AddGrade(byte grade)
         {
 
-            this.AddGrade((float)Math.Ceiling((decimal)grade));
+            this.AddGrade((float)grade);
         }
 
         public Statistics GetStatistics()
