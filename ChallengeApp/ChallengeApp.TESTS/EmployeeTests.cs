@@ -59,7 +59,44 @@ namespace ChallengeApp.TESTS
            
         }
 
+
+        [Test]
+        public void WhenInputGradeAsLetterShouldReturnCorrectStatistics()
+        {
+            Employee testEmployee = new Employee();
+            testEmployee.AddGrade("a");
+            testEmployee.AddGrade("A");
+            testEmployee.AddGrade("a");
+          
+            var statistics = testEmployee.GetStatistics();
+
+            Assert.AreEqual(100, statistics.Max);
+            Assert.AreEqual(100, statistics.Min);
+            Assert.AreEqual(100, statistics.Average);
+            Assert.IsTrue(statistics.AverageLetter == 'A');
         }
+
+        [Test]
+        public void WhenInputGradesAsLettersAndAsNumbersShouldReturnCorrectStatistics()
+        {
+            Employee testEmployee = new Employee();
+            testEmployee.AddGrade("b");
+            testEmployee.AddGrade("B");
+            testEmployee.AddGrade(80);
+            testEmployee.AddGrade(80);
+
+            var statistics = testEmployee.GetStatistics();
+
+            Assert.AreEqual(80, statistics.Max);
+            Assert.AreEqual(80, statistics.Min);
+            Assert.AreEqual(80, statistics.Average);
+            Assert.IsTrue(statistics.AverageLetter == 'A');
+
+
+        }
+
+
+    }           
 
 
 

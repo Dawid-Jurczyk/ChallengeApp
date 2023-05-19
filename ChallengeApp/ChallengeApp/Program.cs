@@ -8,21 +8,34 @@ namespace ChallengeApp
 
         static void Main(string[] args)
         {
-            var employee1 = new Employee("Adam", "Kamizelich");
+            Console.WriteLine("Witamy with Programie Employees_Grades do oceny Pracowników");
+            Console.WriteLine("=============================================================");
+            Console.WriteLine();
+            Console.WriteLine();
 
-            employee1.AddGrade(2);
-            employee1.AddGrade(2);
-            employee1.AddGrade(6);
+            var employee = new Employee();
             
             
-            var statistics = employee1.GetStatistics();
+            while(true)
+            {
+                Console.WriteLine("Podaj ocenę pracownika ");
+                var input = Console.ReadLine();
+                if(input == "q" || input == "Q")
+                {
+                    break;
+                }
+                employee.AddGrade(input);
 
-            Console.WriteLine($"Average: {statistics.Average:N2}");
-            Console.WriteLine($"Min: {statistics.Min}");
-            Console.WriteLine($"Max: {statistics.Max}");
-
-         
+            }
             
+            var statistics = employee.GetStatistics();
+            Console.WriteLine("Grades statistics are:");
+            Console.WriteLine($"-> Average: {statistics.Average:N2}");
+            Console.WriteLine($"-> Average grade as letter: {statistics.AverageLetter}");
+            Console.WriteLine($"-> Highest grade: {statistics.Max}");
+            Console.WriteLine($"-> Lowest grade: {statistics.Min}");
+            
+
 
 
 

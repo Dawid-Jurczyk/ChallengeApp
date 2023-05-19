@@ -10,6 +10,9 @@ namespace ChallengeApp
         private List<float> grades = new List<float>();
 
 
+        public Employee() { } // empty constructor
+
+
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -45,7 +48,7 @@ namespace ChallengeApp
                 this.AddGrade(result);
             }
             else
-            { Console.WriteLine("String is not float"); }
+            { AddGradeAsLetter(grade); }
         }
 
         //for int
@@ -86,6 +89,55 @@ namespace ChallengeApp
             this.AddGrade((float)grade);
         }
 
+       //for char - input grades as letters
+        public void AddGradeAsLetter(string grade)
+        {
+            switch(grade)
+            {
+                case "A" :
+                case "a":
+                    this.grades.Add(100);
+
+                    break;
+
+                case "B":
+                case "b":
+                    this.grades.Add(80);
+
+                    break;
+
+                case "C":
+                case "c":
+                    this.grades.Add(60);
+
+                    break;
+
+                case "D":
+                case "d":
+                    this.grades.Add(40);
+
+                    break;
+
+                case "E":
+                case "e":
+                    this.grades.Add(20);
+
+                    break;
+
+                default:
+                    Console.WriteLine("Wrong Letter");
+                    break;
+
+
+
+
+            }
+                        
+        }
+
+
+
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -103,6 +155,30 @@ namespace ChallengeApp
             }
 
             statistics.Average /= this.grades.Count;
+
+            switch(statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+
+            }
 
             return statistics;
         }
