@@ -36,7 +36,8 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Invalid grade value");
+                throw new Exception("Invalid grade value");
+               
             }
         }
 
@@ -125,8 +126,10 @@ namespace ChallengeApp
                     break;
 
                 default:
-                    Console.WriteLine("Wrong Letter");
-                    break;
+                    throw new Exception("Wrong letter");
+
+                
+                   
 
 
 

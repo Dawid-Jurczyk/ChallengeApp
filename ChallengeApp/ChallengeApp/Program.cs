@@ -14,7 +14,9 @@ namespace ChallengeApp
             Console.WriteLine();
 
             var employee = new Employee();
-            
+
+
+
             
             while(true)
             {
@@ -24,8 +26,16 @@ namespace ChallengeApp
                 {
                     break;
                 }
-                employee.AddGrade(input);
+               try
+                {
+                    employee.AddGrade(input); //<--- tutaj obsługujemy exceptiona bo w metodzie AddGrade mamy throwa
 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                
             }
             
             var statistics = employee.GetStatistics();
