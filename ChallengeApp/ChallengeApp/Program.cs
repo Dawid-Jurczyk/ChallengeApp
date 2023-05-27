@@ -13,7 +13,7 @@ namespace ChallengeApp
             Console.WriteLine();
             Console.WriteLine();
 
-            var employee = new Employee();
+            var employee = new Employee("Adam","Kamizelich","male");
 
 
 

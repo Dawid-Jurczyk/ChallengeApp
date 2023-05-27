@@ -1,29 +1,23 @@
 ﻿
 
-using System.Diagnostics;
-
 namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
 
         private List<float> grades = new List<float>();
 
 
-        public Employee() { } // empty constructor
 
-
-        public Employee(string name, string surname)
-        {
-            this.Name = name;
-            this.Surname = surname;
-
-        }
+        public Employee(string name, string surname, string sex)
+            : base(name, surname, sex) { }
 
 
 
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
+
+
+
+
 
         //for float - the primary method
 
@@ -48,10 +42,17 @@ namespace ChallengeApp
             {
                 this.AddGrade(result);
             }
+            else if(char.TryParse(grade, out char resultChar))
+            {
+
+                this.AddGrade(resultChar);
+
+                //char gradeAsChar = grade[0]; <- to jest "nie ładne" chociaż działa
+                //AddGrade(gradeAsChar);
+            }
             else
             {
-                char gradeAsChar = grade[0];
-                 AddGrade(gradeAsChar);
+                throw new Exception("Invalid grade value");
             }
         }
 
