@@ -2,7 +2,7 @@
 
 namespace ChallengeApp
 {
-    public class Person
+    public abstract class Person
     {
        
         public Person(string name, string surname, string sex)
@@ -11,7 +11,7 @@ namespace ChallengeApp
             this.Surname = surname;
             this.Sex = sex;
         }
-
+        
        
         public string Name { get;  private set; }
 
