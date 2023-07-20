@@ -1,5 +1,4 @@
-﻿
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public interface IEmployee
     {
